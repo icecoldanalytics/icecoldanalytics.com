@@ -478,24 +478,22 @@ function showExport(){
 function hideExport(){document.getElementById("expModal").classList.remove("open");}
 function doExport(){
   var done=players.filter(function(p){return p.status==="complete";}).length;
-  var catH=SKATER_CATS.map(function(c){return c.lbl;}).join(",")+",G:Positioning,G:Technique,G:Movement,G:Compete,G:PuckPlay";
+  // Header uses skater cat names — goalie rows will have their values in same positions
+  // Import side uses getCats(pos) to map columns back to correct IDs
   var lines=["# ICA_EVAL_EXPORT","# Evaluator,\""+evalName+"\"","# Session,\""+sessName+"\"","# Date,\""+new Date().toISOString().slice(0,10)+"\"",
-    "Name,Jersey,Position,Status,Overall,"+catH+",Notes"];
+    "Name,Jersey,Position,Status,Overall,Cat1,Cat2,Cat3,Cat4,Cat5,Notes"];
   players.forEach(function(p){
     var sc=oScore(p.ratings,p.pos);
     var pcats=getCats(p.pos||"F");
-    var skaterVals=SKATER_CATS.map(function(c){if(p.pos==="G")return"";var v=cScore(p.ratings,c);return v!==null?v:"";}).join(",");
-    var goalieVals=GOALIE_CATS.map(function(c){if(p.pos!=="G")return"";var v=cScore(p.ratings,c);return v!==null?v:"";}).join(",");
-    var cats=skaterVals+","+goalieVals;
-    lines.push("\""+p.name+"\","+p.jersey+",\""+p.pos+"\","+p.status+","+(sc!==null?sc:"")+","+cats+",\""+( p.notes||"").replace(/"/g,"'")+"\"");
+    var catVals=pcats.map(function(c){var v=cScore(p.ratings,c);return v!==null?v:"";}).join(",");
+    lines.push("\""+p.name+"\"," +p.jersey+",\""+p.pos+"\"," +p.status+","+(sc!==null?sc:"")+","+catVals+",\""+(p.notes||"").replace(/"/g,"'")+"\"");
   });
   var blob=new Blob([lines.join("\n")],{type:"text/csv"});
   var a=document.createElement("a");a.href=URL.createObjectURL(blob);
   a.download="ICA_"+sessName.replace(/\s+/g,"_")+"_"+evalName.replace(/\s+/g,"_")+".csv";
   a.click();hideExport();
-  toast("CSV exported - "+done+" of "+players.length+" evaluated");
+  toast("CSV exported — "+done+" of "+players.length+" evaluated");
 }
-
 document.getElementById("expModal").addEventListener("click",function(e){if(e.target===this)hideExport();});
 
 // Single event listener on canvas handles ALL button taps via delegation
