@@ -404,10 +404,12 @@
       <div>
         <div class="form-card" id="registration-form-card">
 
+          <!-- SINGLE FORM — athlete + parent combined -->
+          <form id="registration-form" action="https://formspree.io/f/xpqkkypz" method="POST" novalidate>
+
           <!-- ATHLETE INFO -->
           <div class="form-section-header">Athlete Information</div>
           <div class="form-body">
-            <form id="registration-form" action="https://formspree.io/f/xpqkkypz" method="POST" novalidate>
 
               <div class="form-row">
                 <div class="field">
@@ -429,10 +431,10 @@
                   <label for="age-group">Age Group <span class="req">*</span></label>
                   <select id="age-group" name="age_group" required>
                     <option value="">Select</option>
-                    <option value="U11">U11 (Novice)</option>
-                    <option value="U13">U13 (Peewee)</option>
-                    <option value="U15">U15 (Bantam)</option>
-                    <option value="U18">U18 (Midget)</option>
+                    <option value="U11">U11</option>
+                    <option value="U13">U13</option>
+                    <option value="U15">U15</option>
+                    <option value="U18">U18</option>
                   </select>
                 </div>
                 <div class="field">
@@ -469,14 +471,11 @@
                 <input type="text" name="jersey_number" placeholder="Optional" style="max-width:120px;" />
               </div>
 
-              <!-- PARENT INFO -->
-              <hr class="divider" />
-            </form>
           </div>
 
+          <!-- PARENT INFO -->
           <div class="form-section-header secondary">Parent / Guardian Information</div>
           <div class="form-body">
-            <form id="registration-form-2" action="https://formspree.io/f/xpqkkypz" method="POST" novalidate>
 
               <div class="form-row">
                 <div class="field">
@@ -505,7 +504,6 @@
                 <textarea id="notes" name="notes" rows="3" placeholder="Optional — medical notes, previous injuries, etc."></textarea>
               </div>
 
-              <!-- PAYMENT -->
               <hr class="divider" />
 
               <div class="payment-box">
@@ -544,14 +542,16 @@
                 Questions? Call 780.918.6405 or email icecoldanalytics@shaw.ca
               </p>
 
-            </form>
-
-            <!-- Success message (shown after JS submit) -->
-            <div class="success-message" id="success-msg">
-              <h3>✅ Registration Received!</h3>
-              <p>Thanks for registering. Please send your $100 e-Transfer to <strong>icecoldanalytics@shaw.ca</strong> to confirm your spot. We'll be in touch within 24–48 hours with combine details.</p>
-            </div>
           </div>
+
+          </form>
+
+          <!-- Success message -->
+          <div class="success-message" id="success-msg">
+            <h3>✅ Registration Received!</h3>
+            <p>Thanks for registering. Please send your $100 e-Transfer to <strong>icecoldanalytics@shaw.ca</strong> to confirm your spot. We'll be in touch within 24–48 hours with combine details.</p>
+          </div>
+
         </div>
       </div>
 
