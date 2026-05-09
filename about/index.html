@@ -12,24 +12,24 @@
   <meta property="og:description" content="Founded by a former University of Alberta hockey player on a mission to democratize high-performance analytics for community athletes across Alberta." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
       --navy:    #0b1d35;
-      --blue:    #1a6fbf;
-      --blue-lt: #2484d8;
-      --ice:     #e8f4fd;
-      --red:     #c0392b;
+      --blue:    #264e86;
+      --blue-lt: #2f5fa0;
+      --gold:    #c8922a;
+      --gold-lt: #dba030;
+      --light:   #eff0f4;
       --white:   #ffffff;
-      --offwhite:#f7f9fc;
       --text:    #1a2535;
       --muted:   #6b7c93;
-      --border:  #dce4ef;
-      --font:    'Barlow', sans-serif;
-      --display: 'Barlow Condensed', sans-serif;
+      --border:  #d8dce6;
+      --font:    'Archivo Narrow', 'Arial Narrow', Arial, sans-serif;
+      --display: 'Cinzel', Georgia, 'Times New Roman', serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -61,10 +61,10 @@
     }
     .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
     .nav-links .btn-nav {
-      background: var(--blue); color: var(--white); padding: 7px 16px;
+      background: var(--gold); color: var(--white); padding: 7px 16px;
       border-radius: 3px; font-weight: 600;
     }
-    .nav-links .btn-nav:hover { background: var(--blue-lt); }
+    .nav-links .btn-nav:hover { background: var(--gold-lt); }
 
     /* ── HERO ── */
     .hero {
@@ -99,7 +99,7 @@
     /* ── LAYOUT ── */
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
     .section { padding: 72px 24px; }
-    .section-alt { background: var(--offwhite); }
+    .section-alt { background: var(--light); }
 
     /* ── STORY ── */
     .story-grid {
@@ -152,7 +152,7 @@
       border-top: 3px solid var(--blue);
     }
     .value-icon {
-      width: 44px; height: 44px; background: var(--ice);
+      width: 44px; height: 44px; background: var(--light);
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
       margin-bottom: 18px; font-size: 20px;
     }
@@ -220,7 +220,7 @@
     .cta-band p { font-size: 17px; color: rgba(255,255,255,0.85); margin-bottom: 28px; }
     .btn { display: inline-block; padding: 14px 28px; border-radius: 3px; font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: all 0.15s; cursor: pointer; }
     .btn-white { background: var(--white); color: var(--blue); }
-    .btn-white:hover { background: var(--ice); }
+    .btn-white:hover { background: var(--light); }
     .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.6); margin-left: 12px; }
     .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
 
@@ -260,11 +260,11 @@
         <img src="/assets/logo-white-on-navy.svg" alt="Ice Cold Analytics" />
       </a>
       <ul class="nav-links">
+        <li><a href="/about/" style="color:var(--gold);">About</a></li>
         <li><a href="/services/">Services</a></li>
         <li><a href="/#technology">Technology</a></li>
         <li><a href="/#smart-arena">Smart Arena</a></li>
         <li><a href="/combine/">PD&amp;A Combine</a></li>
-        <li><a href="/#news">News</a></li>
         <li><a href="/#contact">Contact</a></li>
         <li><a href="/combine/" class="btn-nav">Register Now</a></li>
       </ul>
