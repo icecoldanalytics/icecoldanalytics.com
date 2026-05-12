@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News | Ice Cold Analytics | Hockey Analytics Alberta</title>
+  <meta name="description" content="Latest news and updates from Ice Cold Analytics — upcoming combines, player development insights, and Drive Hockey analytics news for Alberta minor hockey." />
+  <link rel="canonical" href="https://www.icecoldanalytics.com/news/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0b1d35; --blue: #264e86; --gold: #c8922a; --gold-lt: #dba030;
+      --white: #ffffff; --text: rgba(255,255,255,0.85); --muted: rgba(255,255,255,0.6);
+      --border: rgba(255,255,255,0.1); --gold-border: rgba(200,146,42,0.3);
+      --card: rgba(255,255,255,0.05); --font: 'Archivo Narrow', Arial, sans-serif;
+      --display: 'Cinzel', Georgia, serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--text); background: var(--navy); }
+
+    .nav { background: rgba(11,29,53,0.97); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--gold-border); }
+    .nav-inner { max-width: 1180px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { text-decoration: none; display: flex; align-items: center; }
+    .nav-logo img { height: 38px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 6px; align-items: center; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.78); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-decoration: none; padding: 6px 10px; border-radius: 3px; transition: color 0.15s; text-transform: uppercase; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.active { color: var(--gold); }
+    .btn-nav { background: var(--gold) !important; color: var(--navy) !important; padding: 7px 16px; border-radius: 3px; font-weight: 700 !important; }
+    .btn-nav:hover { background: var(--gold-lt) !important; }
+
+    .hero { background: var(--navy); padding: 80px 24px 64px; text-align: center; position: relative; overflow: hidden; border-bottom: 1px solid var(--gold-border); }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 60%, rgba(200,146,42,0.08) 0%, transparent 65%); pointer-events: none; }
+    .eyebrow { font-family: var(--display); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .hero h1 { font-family: var(--display); font-size: clamp(36px, 6vw, 64px); font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.05; margin-bottom: 20px; }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero-sub { font-size: 18px; color: var(--muted); max-width: 560px; margin: 0 auto; line-height: 1.65; }
+
+    .section { padding: 72px 24px; }
+    .section-alt { background: rgba(255,255,255,0.03); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label { font-family: var(--display); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    .section-title { font-family: var(--display); font-size: clamp(26px, 4vw, 40px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--white); line-height: 1.1; margin-bottom: 20px; }
+
+    /* NEWS GRID */
+    .news-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; align-items: start; }
+    .news-main { display: flex; flex-direction: column; gap: 24px; }
+    .news-sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+    .news-card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; overflow: hidden; transition: border-color 0.2s; }
+    .news-card:hover { border-color: var(--gold-border); }
+    .news-card.featured { border-top: 3px solid var(--gold); }
+    .news-card-body { padding: 28px; }
+    .news-tag { display: inline-block; font-family: var(--display); font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+    .news-card h2 { font-family: var(--display); font-size: clamp(18px, 2.5vw, 24px); font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.2; margin-bottom: 12px; }
+    .news-card p { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 16px; }
+    .news-meta { font-size: 12px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.06em; }
+    .news-link { display: inline-block; font-size: 13px; font-weight: 600; color: var(--gold); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 8px; }
+    .news-link:hover { text-decoration: underline; }
+
+    .sidebar-card { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 20px; }
+    .sidebar-card h3 { font-family: var(--display); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--white); margin-bottom: 8px; }
+    .sidebar-card p { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 10px; }
+    .sidebar-meta { font-size: 11px; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.06em; }
+
+    .combine-cta { background: rgba(200,146,42,0.1); border: 1px solid var(--gold-border); border-radius: 6px; padding: 24px; text-align: center; }
+    .combine-cta h3 { font-family: var(--display); font-size: 18px; font-weight: 700; text-transform: uppercase; color: var(--white); margin-bottom: 10px; }
+    .combine-cta p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+
+    .btn { display: inline-block; padding: 12px 22px; border-radius: 3px; font-family: var(--font); font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.15s; }
+    .btn-gold { background: var(--gold); color: var(--navy); }
+    .btn-gold:hover { background: var(--gold-lt); }
+    .btn-gold-sm { background: var(--gold); color: var(--navy); padding: 10px 18px; font-size: 12px; }
+    .btn-gold-sm:hover { background: var(--gold-lt); }
+    .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.35); margin-left: 12px; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .cta-band { background: rgba(200,146,42,0.1); border-top: 1px solid var(--gold-border); padding: 64px 24px; text-align: center; }
+    .cta-band h2 { font-family: var(--display); font-size: clamp(24px, 4vw, 40px); font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 16px; }
+    .cta-band p { font-size: 17px; color: var(--muted); margin-bottom: 28px; }
+
+    footer { background: rgba(0,0,0,0.3); color: var(--muted); padding: 40px 24px; font-size: 13px; border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
+    .footer-links { list-style: none; display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      .news-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="/assets/logo-white-on-navy.svg" alt="Ice Cold Analytics" /></a>
+    <ul class="nav-links">
+      <li><a href="/about/">About</a></li>
+      <li><a href="/services/">Services</a></li>
+      <li><a href="/technology/">Technology</a></li>
+      <li><a href="/smart-arena/">Smart Arena</a></li>
+      <li><a href="/combine/">PD&amp;A Combine</a></li>
+      <li><a href="/news/" class="active">News</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/combine/" class="btn-nav">Register Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <p class="eyebrow">Latest Updates</p>
+  <h1>News &<br><em>Updates</em></h1>
+  <p class="hero-sub">Upcoming combines, player development insights, and news from Ice Cold Analytics and the Drive Hockey platform.</p>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="news-grid">
+
+      <!-- MAIN FEED -->
+      <div class="news-main">
+
+        <div class="news-card featured">
+          <div class="news-card-body">
+            <span class="news-tag">📅 Upcoming Event</span>
+            <h2>June 2026 PD&A Combine — Now Open for Registration</h2>
+            <p>The Ice Cold Analytics Player Development & Analytics Combine is coming this June to the Edmonton area. Athletes in U11, U13, U15, and U18 age groups will skate through standardized Drive Hockey testing sessions and receive their professional development reports.</p>
+            <p>Spots are limited by age group to ensure quality data capture and individual attention. Early registration is strongly recommended.</p>
+            <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-top: 8px;">
+              <span class="news-meta">May 2026 · Event Announcement</span>
+              <a href="/combine/" class="btn btn-gold-sm">Register Now →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-card-body">
+            <span class="news-tag">🏒 Player Development</span>
+            <h2>What Skating Analytics Actually Tell You About Your Athlete</h2>
+            <p>Parents often ask what they'll actually learn from a combine report. The answer goes well beyond "fast" or "slow." Drive Hockey's AI captures the mechanics behind the speed — why a player is losing edges in tight turns, where their crossover is bleeding time, how their conditioning is affecting their first step in the third period.</p>
+            <p>Subjective evaluations give impressions. Analytics give targets. When you know specifically what to work on, every training session becomes more efficient.</p>
+            <div style="margin-top:8px;">
+              <span class="news-meta">April 2026 · Development Insight</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-card-body">
+            <span class="news-tag">📊 Analytics</span>
+            <h2>The Player Performance Index: How Your Athlete Gets Benchmarked</h2>
+            <p>Every athlete who completes an Ice Cold Analytics combine receives their results benchmarked against Drive Hockey's Player Performance Index (PPI). The PPI is a database of athletes across all skill levels — from community hockey to professional prospects.</p>
+            <p>This means your athlete's results aren't just numbers in isolation. They're compared against a real population, giving you an honest picture of where they stand relative to their peers and what elite players at their age group look like.</p>
+            <div style="margin-top:8px;">
+              <span class="news-meta">March 2026 · Platform Feature</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="news-card">
+          <div class="news-card-body">
+            <span class="news-tag">🎓 Founder</span>
+            <h2>Why I Started Ice Cold Analytics</h2>
+            <p>I played hockey at the University of Alberta and spent years wondering the same thing every serious player wonders: what do I actually need to work on? Coaches gave feedback. Trainers gave drills. But the precise, measurable data that could tell me exactly where my skating was costing me — that didn't exist for players like me.</p>
+            <p>Ice Cold Analytics is the answer to that question. My goal is simple: every athlete in Alberta who wants this level of insight should be able to get it, at a price point that works for real families.</p>
+            <div style="margin-top:8px;">
+              <span class="news-meta">February 2026 · Founder's Note</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <div class="news-sidebar">
+
+        <div class="combine-cta">
+          <h3>June 2026 Combine</h3>
+          <p>Spots are limited. Register your athlete now to secure their place in the next combine.</p>
+          <a href="/combine/" class="btn btn-gold" style="display:block; text-align:center;">Register Now</a>
+        </div>
+
+        <div class="sidebar-card">
+          <span style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); font-family:var(--display); font-weight:600; display:block; margin-bottom:12px;">Quick Links</span>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:8px;">
+            <li><a href="/about/" style="color:var(--muted); text-decoration:none; font-size:14px;">→ About Ice Cold Analytics</a></li>
+            <li><a href="/services/" style="color:var(--muted); text-decoration:none; font-size:14px;">→ Services & Pricing</a></li>
+            <li><a href="/technology/" style="color:var(--muted); text-decoration:none; font-size:14px;">→ Drive Hockey Technology</a></li>
+            <li><a href="/smart-arena/" style="color:var(--muted); text-decoration:none; font-size:14px;">→ Smart Arena</a></li>
+            <li><a href="/combine/" style="color:var(--muted); text-decoration:none; font-size:14px;">→ PD&A Combine</a></li>
+            <li><a href="/#contact" style="color:var(--muted); text-decoration:none; font-size:14px;">→ Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Age Groups</h3>
+          <p>Combines are available for U11, U13, U15, and U18 athletes across the Edmonton area and Alberta.</p>
+          <p class="sidebar-meta">$100 per athlete</p>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>Contact</h3>
+          <p style="margin-bottom:6px;">780.918.6405</p>
+          <p>icecoldanalytics@shaw.ca</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>Stay in the Loop</h2>
+  <p>Combine dates are announced here first. Check back regularly or get in touch to be notified directly.</p>
+  <a href="/combine/" class="btn btn-gold">View Upcoming Combines</a>
+  <a href="/#contact" class="btn btn-outline">Contact Us</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="/"><img src="/assets/logo-white-on-navy.svg" alt="Ice Cold Analytics" style="height:30px; width:auto; display:block;" /></a>
+      <p style="margin-top:8px;">Authorized Drive Hockey Distributor · Alberta</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="/about/">About</a></li>
+      <li><a href="/services/">Services</a></li>
+      <li><a href="/technology/">Technology</a></li>
+      <li><a href="/smart-arena/">Smart Arena</a></li>
+      <li><a href="/combine/">Register</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <p>© 2025 Ice Cold Analytics. Alberta.<br/>780.918.6405 · icecoldanalytics@shaw.ca</p>
+  </div>
+</footer>
+
+</body>
+</html>

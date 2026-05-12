@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technology | Ice Cold Analytics | Drive Hockey AI Sensor Platform Alberta</title>
+  <meta name="description" content="Ice Cold Analytics uses Drive Hockey AI sensor technology to identify and measure 20+ individual on-ice skills. NHL-level analytics for Alberta minor hockey athletes." />
+  <link rel="canonical" href="https://www.icecoldanalytics.com/technology/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Archivo+Narrow:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0b1d35; --blue: #264e86; --gold: #c8922a; --gold-lt: #dba030;
+      --white: #ffffff; --text: rgba(255,255,255,0.85); --muted: rgba(255,255,255,0.6);
+      --border: rgba(255,255,255,0.1); --gold-border: rgba(200,146,42,0.3);
+      --card: rgba(255,255,255,0.05); --font: 'Archivo Narrow', Arial, sans-serif;
+      --display: 'Cinzel', Georgia, serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--text); background: var(--navy); }
+
+    /* NAV */
+    .nav { background: rgba(11,29,53,0.97); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--gold-border); }
+    .nav-inner { max-width: 1180px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { text-decoration: none; display: flex; align-items: center; }
+    .nav-logo img { height: 38px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 6px; align-items: center; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.78); font-size: 13px; font-weight: 500; letter-spacing: 0.04em; text-decoration: none; padding: 6px 10px; border-radius: 3px; transition: color 0.15s; text-transform: uppercase; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.active { color: var(--gold); }
+    .btn-nav { background: var(--gold) !important; color: var(--navy) !important; padding: 7px 16px; border-radius: 3px; font-weight: 700 !important; }
+    .btn-nav:hover { background: var(--gold-lt) !important; }
+
+    /* HERO */
+    .hero { background: var(--navy); padding: 80px 24px 64px; text-align: center; position: relative; overflow: hidden; border-bottom: 1px solid var(--gold-border); }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 60%, rgba(200,146,42,0.08) 0%, transparent 65%); pointer-events: none; }
+    .eyebrow { font-family: var(--display); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .hero h1 { font-family: var(--display); font-size: clamp(36px, 6vw, 64px); font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.05; margin-bottom: 20px; }
+    .hero h1 em { color: var(--gold); font-style: normal; }
+    .hero-sub { font-size: 18px; color: var(--muted); max-width: 580px; margin: 0 auto; line-height: 1.65; }
+
+    /* LAYOUT */
+    .section { padding: 72px 24px; }
+    .section-alt { background: rgba(255,255,255,0.03); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label { font-family: var(--display); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+    .section-title { font-family: var(--display); font-size: clamp(26px, 4vw, 40px); font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--white); line-height: 1.1; margin-bottom: 20px; }
+
+    /* TWO COL */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .two-col.flip { direction: rtl; }
+    .two-col.flip > * { direction: ltr; }
+    .col-text p { font-size: 16px; line-height: 1.8; color: var(--muted); margin-bottom: 16px; }
+    .col-text p:last-child { margin-bottom: 0; }
+    .img-frame { border-radius: 6px; overflow: hidden; border: 1px solid var(--border); }
+    .img-frame img { width: 100%; display: block; }
+
+    /* CHECK LIST */
+    .check-list { list-style: none; margin-top: 8px; }
+    .check-list li { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 15px; color: var(--muted); }
+    .check-list li:last-child { border-bottom: none; }
+    .check { width: 20px; height: 20px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; color: var(--navy); font-size: 11px; font-weight: 700; }
+
+    /* METRICS GRID */
+    .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .metric-card { background: var(--card); border: 1px solid var(--border); border-top: 3px solid var(--gold); border-radius: 6px; padding: 28px 24px; }
+    .metric-num { font-family: var(--display); font-size: 42px; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+    .metric-label { font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+
+    /* HOW IT WORKS */
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .step-card { background: var(--card); border: 1px solid var(--border); border-top: 3px solid var(--gold); border-radius: 6px; padding: 28px 20px; text-align: center; }
+    .step-num { font-family: var(--display); font-size: 48px; font-weight: 700; color: rgba(255,255,255,0.08); line-height: 1; margin-bottom: 12px; }
+    .step-card h3 { font-family: var(--display); font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--white); margin-bottom: 10px; }
+    .step-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* DH BADGE */
+    .dh-panel { background: var(--card); border: 1px solid var(--gold-border); border-radius: 6px; padding: 40px; text-align: center; }
+    .dh-panel-eyebrow { font-family: var(--display); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .dh-panel-name { font-family: var(--display); font-size: 40px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 16px; }
+    .dh-panel-name span { color: var(--gold); }
+    .dh-panel p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+    .dh-panel a { font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 0.06em; text-decoration: none; text-transform: uppercase; }
+    .dh-panel a:hover { text-decoration: underline; }
+
+    /* CTA */
+    .cta-band { background: rgba(200,146,42,0.1); border-top: 1px solid var(--gold-border); padding: 64px 24px; text-align: center; }
+    .cta-band h2 { font-family: var(--display); font-size: clamp(24px, 4vw, 40px); font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 16px; }
+    .cta-band p { font-size: 17px; color: var(--muted); margin-bottom: 28px; }
+    .btn { display: inline-block; padding: 14px 28px; border-radius: 3px; font-family: var(--font); font-weight: 700; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: all 0.15s; }
+    .btn-gold { background: var(--gold); color: var(--navy); }
+    .btn-gold:hover { background: var(--gold-lt); }
+    .btn-outline { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.35); margin-left: 12px; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* FOOTER */
+    footer { background: rgba(0,0,0,0.3); color: var(--muted); padding: 40px 24px; font-size: 13px; border-top: 1px solid var(--border); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
+    .footer-links { list-style: none; display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
+      .two-col, .two-col.flip { grid-template-columns: 1fr; gap: 36px; direction: ltr; }
+      .metrics-grid { grid-template-columns: 1fr 1fr; }
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="/assets/logo-white-on-navy.svg" alt="Ice Cold Analytics" /></a>
+    <ul class="nav-links">
+      <li><a href="/about/">About</a></li>
+      <li><a href="/services/">Services</a></li>
+      <li><a href="/technology/" class="active">Technology</a></li>
+      <li><a href="/smart-arena/">Smart Arena</a></li>
+      <li><a href="/combine/">PD&amp;A Combine</a></li>
+      <li><a href="/#news">News</a></li>
+      <li><a href="/#contact">Contact</a></li>
+      <li><a href="/combine/" class="btn-nav">Register Now</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <p class="eyebrow">The Platform</p>
+  <h1>AI That Sees What<br>Coaches <em>Can't.</em></h1>
+  <p class="hero-sub">Drive Hockey's AI sensor system captures and measures over 20 individual on-ice skills in real time — delivering objective, precise data at the NHL combine level.</p>
+</section>
+
+<!-- INTRO -->
+<section class="section">
+  <div class="container">
+    <div class="two-col">
+      <div class="col-text">
+        <p class="section-label">Drive Hockey Technology</p>
+        <h2 class="section-title">NHL-Level Analytics.<br>Community Prices.</h2>
+        <p>Drive Hockey is the AI-powered sensor platform used by professional scouts and development programs at the highest levels of the game. Ice Cold Analytics brings that same technology to minor hockey athletes across Alberta as an authorized distributor.</p>
+        <p>The system sets up in 15 minutes at any rink. Sensors are positioned around the boards and athletes wear a lightweight sensor on their shoulder pads. From there, the AI does the work — automatically identifying and measuring skills as athletes skate through standardized testing drills.</p>
+        <p>No guesswork. No subjectivity. Just data.</p>
+      </div>
+      <div>
+        <div class="img-frame">
+          <img src="/assets/kit.jpg" alt="Drive Hockey sensor kit" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section class="section section-alt">
+  <div class="container">
+    <div style="text-align:center; margin-bottom: 48px;">
+      <p class="section-label">By the Numbers</p>
+      <h2 class="section-title">What the Platform Delivers</h2>
+    </div>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-num">20<span style="font-size:24px;">+</span></div>
+        <div class="metric-label">Individual skills identified automatically by AI</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">15<span style="font-size:24px;">min</span></div>
+        <div class="metric-label">Setup time — works at any rink in Alberta</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-num">PPI</div>
+        <div class="metric-label">Player Performance Index — benchmark against all levels</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IT MEASURES -->
+<section class="section">
+  <div class="container">
+    <div class="two-col flip">
+      <div class="col-text">
+        <p class="section-label">What Gets Measured</p>
+        <h2 class="section-title">Precision Across<br>Every Skill Set</h2>
+        <p>The Drive Hockey AI doesn't just track where athletes are on the ice — it understands what they're doing and how well they're doing it. Every rep, every edge, every turn is captured and categorized.</p>
+        <ul class="check-list">
+          <li><span class="check">✓</span>Skating mechanics — stride efficiency, power, and edge control</li>
+          <li><span class="check">✓</span>Acceleration patterns — first step quickness and top-speed development</li>
+          <li><span class="check">✓</span>Crossover profiles — entry speed, radius, mid-turn, and exit velocity</li>
+          <li><span class="check">✓</span>Tight turn mechanics — direction changes and agility patterns</li>
+          <li><span class="check">✓</span>Hockey IQ — tactical positioning and decision-making on-ice</li>
+          <li><span class="check">✓</span>Conditioning metrics — work rate and recovery patterns</li>
+          <li><span class="check">✓</span>Force output — power generation through the skating stride</li>
+        </ul>
+      </div>
+      <div>
+        <div class="img-frame" style="margin-bottom: 16px;">
+          <img src="/assets/DHA_Skills_Acceleration.jpg" alt="Drive Hockey analytics skills and acceleration dashboard" />
+        </div>
+        <div class="img-frame">
+          <img src="/assets/force_output.png" alt="Drive Hockey force output measurement" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONDITIONING -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <div class="img-frame">
+          <img src="/assets/conditioning.png" alt="Drive Hockey conditioning analytics" />
+        </div>
+      </div>
+      <div class="col-text">
+        <p class="section-label">Conditioning Analytics</p>
+        <h2 class="section-title">Fitness Meets<br>Ice Intelligence</h2>
+        <p>Beyond skating skills, Drive Hockey captures conditioning data that shows how an athlete's performance changes as fatigue sets in — a dimension of player development that's nearly impossible to evaluate with the naked eye.</p>
+        <p>Understanding how an athlete's mechanics degrade under fatigue is one of the most valuable insights a coach or trainer can have. The platform makes it measurable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW THE SYSTEM WORKS -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center; margin-bottom: 48px;">
+      <p class="section-label">The System</p>
+      <h2 class="section-title">How It All Works</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <h3>Setup</h3>
+        <p>AI sensors are positioned around the rink boards. The system is fully portable and operational in 15 minutes at any arena.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <h3>Player Tag</h3>
+        <p>Each athlete wears a lightweight sensor on their shoulder pads. No blades, no wires — completely unobtrusive.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <h3>AI Capture</h3>
+        <p>As athletes skate through standardized drills, the AI automatically identifies and measures every skill in real time.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <h3>PPI Report</h3>
+        <p>Results are benchmarked via the Player Performance Index and delivered as a professional development report.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DH BADGE -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="two-col">
+      <div class="col-text">
+        <p class="section-label">Our Technology Partner</p>
+        <h2 class="section-title">Authorized Drive Hockey Distributor</h2>
+        <p>Ice Cold Analytics is an authorized distributor of the Drive Hockey platform — the same system used at professional combines and by elite development programs worldwide.</p>
+        <p>That authorization means athletes in Alberta get access to the real platform, not a copy or approximation. The same data. The same AI. The same benchmarks used to evaluate professional prospects.</p>
+      </div>
+      <div class="dh-panel">
+        <p class="dh-panel-eyebrow">Authorized Distributor</p>
+        <div class="dh-panel-name">Drive <span>Hockey</span></div>
+        <p>Sensor technology and AI analytics trusted at the highest levels of hockey development — now available to athletes across Alberta through Ice Cold Analytics.</p>
+        <a href="https://www.drivehockey.com" target="_blank" rel="noopener">Learn more at drivehockey.com →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2>See the Technology in Action</h2>
+  <p>Register your athlete for the next Ice Cold Analytics combine and get a professional development report.</p>
+  <a href="/combine/" class="btn btn-gold">Register for a Combine</a>
+  <a href="/#contact" class="btn btn-outline">Contact Us</a>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <a href="/"><img src="/assets/logo-white-on-navy.svg" alt="Ice Cold Analytics" style="height:30px; width:auto; display:block;" /></a>
+      <p style="margin-top:8px;">Authorized Drive Hockey Distributor · Alberta</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="/about/">About</a></li>
+      <li><a href="/services/">Services</a></li>
+      <li><a href="/technology/">Technology</a></li>
+      <li><a href="/smart-arena/">Smart Arena</a></li>
+      <li><a href="/combine/">Register</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+    <p>© 2025 Ice Cold Analytics. Alberta.<br/>780.918.6405 · icecoldanalytics@shaw.ca</p>
+  </div>
+</footer>
+
+</body>
+</html>
